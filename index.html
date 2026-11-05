@@ -1,219 +1,82 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src https://aaxysrhhiemnshmhbuxp.supabase.co; img-src data:; base-uri 'none'; form-action 'none'">
-<meta name="robots" content="noindex,nofollow">
-<title>لوحة مطوّر VoltNet Pro</title>
-<style>
-:root{--bg:#f4f6f8;--card:#fff;--tx:#14202b;--mu:#5d6b78;--pr:#0f9d8a;--bd:#dde3e8;--er:#c0392b;--wa:#b9770e;--ok:#1e8449}
-@media (prefers-color-scheme:dark){:root{--bg:#0c1620;--card:#142230;--tx:#e8eef3;--mu:#97a6b3;--pr:#2dd4bf;--bd:#243747;--er:#ff7b6b;--wa:#f0b35a;--ok:#5fd68a}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font-family:system-ui,"Segoe UI",Tahoma,Arial,sans-serif;font-size:15px}
-header{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--card);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5}
-header h1{font-size:17px;margin:0;flex:1}
-main{max-width:1100px;margin:0 auto;padding:16px}
-.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin-bottom:14px}
-button{font:inherit;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:8px 12px;cursor:pointer}
-button.p{background:var(--pr);color:#fff;border-color:var(--pr)}button.d{color:var(--er)}button:disabled{opacity:.5;cursor:default}
-input,select,textarea{font:inherit;width:100%;padding:9px 10px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx)}
-label{display:block;font-size:13px;color:var(--mu);margin:10px 0 4px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{flex:0 0 auto}.grow{flex:1 1 200px!important}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:14px}
-.stat{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:12px}.stat b{display:block;font-size:22px}.stat span{color:var(--mu);font-size:12px}
-.chip{border-radius:999px;padding:6px 12px;font-size:13px}.chip.on{background:var(--pr);color:#fff;border-color:var(--pr)}
-.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:720px}th,td{padding:9px 8px;border-bottom:1px solid var(--bd);text-align:right;white-space:nowrap}
-th{font-size:12px;color:var(--mu)}td.e{max-width:240px;overflow:hidden;text-overflow:ellipsis}
-.tag{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;border:1px solid var(--bd)}
-.tag.ok{color:var(--ok)}.tag.wa{color:var(--wa)}.tag.er{color:var(--er)}
-.tabs{display:flex;gap:6px;margin-bottom:14px}.msg{padding:10px;border-radius:10px;margin:8px 0;font-size:14px}.msg.er{background:#c0392b22;color:var(--er)}.msg.ok{background:#1e844922;color:var(--ok)}
-dialog{border:1px solid var(--bd);border-radius:16px;background:var(--card);color:var(--tx);max-width:420px;width:92%}
-dialog::backdrop{background:#0008}.hide{display:none!important}.mu{color:var(--mu);font-size:13px}pre{white-space:pre-wrap;word-break:break-word;margin:0;font-size:12px}
-</style>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101827"><title>VoltNet Pro — إدارة التراخيص</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b1220;--panel:#121d30;--panel2:#17243a;--line:#263751;--txt:#edf4ff;--muted:#9fb0c8;--blue:#4c8dff;--green:#28c58b;--red:#f16c78;--gold:#f1bd55}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#1a3152 0,transparent 38%),var(--bg);color:var(--txt);font-family:Tahoma,Arial,sans-serif;min-height:100vh}
+    .wrap{max-width:1180px;margin:auto;padding:24px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:22px}.brand{display:flex;align-items:center;gap:12px}.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#2676e9,#21c5a0);display:grid;place-items:center;font-weight:900;font-size:20px}.brand h1{font-size:21px;margin:0}.brand p{margin:5px 0 0;color:var(--muted);font-size:12px}.panel{background:linear-gradient(160deg,#152238,#101a2b);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 18px 55px #0003}.login{max-width:430px;margin:9vh auto}.hidden{display:none!important}.field{display:grid;gap:7px;margin:13px 0}.field label{font-size:13px;color:var(--muted)}input,select,textarea{width:100%;background:#0b1525;color:var(--txt);border:1px solid #30435f;border-radius:11px;padding:12px;font:inherit;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--blue)}button{border:0;border-radius:11px;padding:11px 15px;background:var(--blue);color:white;font:inherit;font-weight:700;cursor:pointer}button:disabled{opacity:.5;cursor:wait}.secondary{background:#263852}.danger{background:#9d3443}.success{background:#147a5a}.muted{color:var(--muted)}.full{width:100%}.bar{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.bar input{flex:1;min-width:210px}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}.tab{background:#1b2b43;color:#b9c9df}.tab.active{background:#286dd2;color:white}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}.stat{padding:15px;border-radius:14px;background:#0e192a;border:1px solid var(--line)}.stat b{display:block;font-size:23px;margin-top:6px}.stat span{font-size:12px;color:var(--muted)}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:14px}table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:right;padding:13px;border-bottom:1px solid var(--line);font-size:13px}th{color:#9eb4d3;background:#0e192a;position:sticky;top:0}tr:last-child td{border:0}tbody tr:hover{background:#ffffff08}.pill{display:inline-block;border-radius:99px;padding:5px 9px;font-size:11px;background:#293a52}.pill.ok{background:#124b3b;color:#8ff0c9}.pill.warn{background:#59431b;color:#ffdb8a}.pill.bad{background:#542630;color:#ffabb5}.actions{display:flex;gap:6px;flex-wrap:wrap}.actions button{padding:7px 10px;font-size:12px}.section{margin-top:20px}.section h2{font-size:17px;margin:0 0 12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.appcontrol{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px;border:1px solid var(--line);border-radius:13px;margin:9px 0;background:#0e192a}.msg{padding:11px 13px;border-radius:11px;margin:10px 0;background:#21324a;color:#dceaff;font-size:13px}.msg.error{background:#49232b;color:#ffc1c7}.msg.good{background:#123e32;color:#a5f2d6}.modal{position:fixed;inset:0;background:#0009;display:grid;place-items:center;padding:16px;z-index:5}.modal .panel{width:min(520px,100%);max-height:90vh;overflow:auto}.foot{text-align:center;color:#71839e;font-size:11px;padding:22px}
+    @media(max-width:760px){.wrap{padding:14px}.stats{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.top{align-items:flex-start}.brand h1{font-size:17px}}
+  </style>
 </head>
 <body>
-<header><h1>لوحة مطوّر VoltNet Pro</h1><span id="who" class="mu"></span><button id="out" class="hide">خروج</button></header>
-<main>
-<section id="login" class="card" style="max-width:420px;margin:40px auto">
-  <h2 style="margin-top:0">تسجيل الدخول</h2>
-  <p class="mu">بحساب المطوّر المسجّل في Supabase. لن تظهر الأدوات إلا إذا كان الحساب في جدول admins.</p>
-  <label for="em">البريد</label><input id="em" type="email" autocomplete="username" dir="ltr">
-  <label for="pw">كلمة السر</label><input id="pw" type="password" autocomplete="current-password" dir="ltr">
-  <div id="lmsg"></div>
-  <div class="row" style="margin-top:12px"><button id="go" class="p grow">دخول</button></div>
-</section>
-
-<section id="app" class="hide">
-  <div class="tabs"><button class="chip on" data-t="lic">التراخيص</button><button class="chip" data-t="cfg">إعدادات التطبيق</button><button class="chip" data-t="aud">السجل</button></div>
-
-  <div id="t-lic">
-    <div class="stats" id="stats"></div>
-    <div class="card">
-      <div class="row">
-        <input id="q" class="grow" placeholder="بحث بالبريد" dir="ltr">
-        <button class="chip on" data-f="all">الكل</button><button class="chip" data-f="soon">ينتهي خلال 7 أيام</button>
-        <button class="chip" data-f="expired">منتهٍ</button><button class="chip" data-f="susp">موقوف</button>
-        <button class="chip" data-f="trial">تجريبي</button><button class="chip" data-f="paid">مدفوع</button>
-        <button id="csv">تصدير CSV</button><button id="rf">تحديث</button>
-      </div>
-      <div id="lm"></div>
-      <div class="tw"><table><thead><tr><th>البريد</th><th>الخطة</th><th>الانتهاء</th><th>الحد</th><th>الحالة</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
-    </div>
-  </div>
-
-  <div id="t-cfg" class="hide card">
-    <p class="mu">هذه القيم يقرؤها التطبيق عند الزبائن (اسم المطوّر، نص الباقات، رقم واتساب الدعم، إشعار تحديث الترخيص).</p>
-    <div id="cfgbox"></div><div id="cm"></div>
-  </div>
-
-  <div id="t-aud" class="hide card"><div id="am"></div><div class="tw"><table><thead><tr><th>الوقت</th><th>المطوّر</th><th>الهدف</th><th>العملية</th><th>التغيير</th></tr></thead><tbody id="arows"></tbody></table></div></div>
-</section>
-</main>
-
-<dialog id="dlg"><form method="dialog" id="df" onsubmit="return false">
-  <h3 id="dt" style="margin-top:0"></h3><div class="mu" id="dm" dir="ltr"></div>
-  <label>الخطة</label><select id="dp"><option value="trial">trial (تجريبي)</option><option value="paid">paid (مدفوع)</option></select>
-  <label>تاريخ الانتهاء</label><input id="dd" type="date" dir="ltr">
-  <div class="row" style="margin-top:6px"><button type="button" data-x="30">+30 يوم</button><button type="button" data-x="90">+90</button><button type="button" data-x="365">+سنة</button></div>
-  <label>حد المشتركين</label><input id="dl" type="number" min="0" max="100000" dir="ltr">
-  <label class="row" style="margin-top:12px"><input id="ds" type="checkbox" style="width:auto"> إيقاف الترخيص</label>
-  <div id="dmsg"></div>
-  <div class="row" style="margin-top:14px"><button id="dsave" class="p grow" type="button">حفظ</button><button id="dcancel" type="button">إلغاء</button></div>
-</form></dialog>
-
+<div class="wrap">
+  <header class="top"><div class="brand"><div class="logo">V</div><div><h1>VoltNet Pro</h1><p>بوابة المطوّر — التراخيص والحسابات والتحكم بالتطبيقات</p></div></div><div id="who" class="muted"></div></header>
+  <section id="login" class="panel login">
+    <h2 style="margin:0 0 6px">تسجيل دخول المطوّر</h2><p class="muted" style="font-size:13px;margin:0 0 18px">الدخول بحساب Supabase المصرّح له بدور المطوّر أو المدير الرئيسي.</p>
+    <div class="field"><label>البريد الإلكتروني</label><input id="email" type="email" autocomplete="username" value="ahmadga808@gmail.com" dir="ltr"></div>
+    <div class="field"><label>كلمة المرور</label><input id="password" type="password" autocomplete="current-password" dir="ltr" placeholder="كلمة مرور حساب Supabase"></div>
+    <button id="loginBtn" class="full">دخول آمن</button><div id="loginMsg" aria-live="polite"></div>
+  </section>
+  <main id="dashboard" class="hidden">
+    <div class="bar"><div style="flex:1"><h2 style="margin:0">لوحة الإدارة</h2><span class="muted" style="font-size:12px">إدارة الترخيص والمدة وحدّ المشتركين وحالة الحساب</span></div><button id="refresh" class="secondary">تحديث البيانات</button><button id="logout" class="danger">تسجيل الخروج</button></div>
+    <div id="notice" aria-live="polite"></div>
+    <div class="stats"><div class="stat"><span>إجمالي الحسابات</span><b id="sTotal">—</b></div><div class="stat"><span>تراخيص فعّالة</span><b id="sActive">—</b></div><div class="stat"><span>تراخيص منتهية</span><b id="sExpired">—</b></div><div class="stat"><span>حسابات مجمّدة</span><b id="sFrozen">—</b></div></div>
+    <nav class="tabs"><button class="tab active" data-tab="licenses">التراخيص</button><button class="tab" data-tab="accounts">الحسابات والصلاحيات</button><button class="tab" data-tab="apps">إيقاف التطبيقات</button></nav>
+    <section id="licenses" class="tabpane">
+      <div class="bar" style="margin-bottom:12px"><input id="search" placeholder="بحث بالبريد الإلكتروني أو اسم الباقة"><button id="export" class="secondary">تصدير CSV</button></div>
+      <div class="tablewrap"><table><thead><tr><th>الحساب</th><th>الباقة</th><th>تاريخ الانتهاء</th><th>حد المشتركين</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody id="licenseRows"><tr><td colspan="6" class="muted">جارٍ التحميل…</td></tr></tbody></table></div>
+    </section>
+    <section id="accounts" class="tabpane hidden">
+      <div class="msg">إنشاء حساب Auth يتم من Supabase Authentication أولاً، ثم امنح الحساب الدور هنا. لا تُخزّن كلمات المرور في هذه الصفحة.</div>
+      <div class="bar" style="margin-bottom:12px"><input id="accountSearch" placeholder="بحث بالبريد الإلكتروني"><button id="reloadAccounts" class="secondary">تحديث الحسابات</button></div>
+      <div class="tablewrap"><table><thead><tr><th>البريد</th><th>الدور</th><th>الحالة</th><th>تعديل الصلاحية</th></tr></thead><tbody id="accountRows"></tbody></table></div>
+    </section>
+    <section id="apps" class="tabpane hidden"><div class="msg">إيقاف التطبيق يمنع تسجيل الدخول الجديد عبر فحص الخادم. إنهاء الجلسات المفتوحة فورياً يتطلب أن تكون نسخة Android محدثة وتفحص حالة التطبيق دورياً.</div><div id="appControls" class="grid2"></div></section>
+  </main>
+  <div class="foot">VoltNet Pro Admin · Supabase Auth + protected RPC · لا يوجد مفتاح service_role في المتصفح</div>
+</div>
+<div id="modal" class="modal hidden"><div class="panel"><div class="bar"><h2 id="modalTitle" style="flex:1;margin:0">تعديل الترخيص</h2><button id="closeModal" class="secondary">إغلاق</button></div><div id="modalBody"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-"use strict";
-var URL_BASE="https://aaxysrhhiemnshmhbuxp.supabase.co", KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFheHlzcmhoaWVtbnNobWhidXhwIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIzNDU4MDcsImV4cCI6MjEwNzkyMTgwN30.3sAfHRivbX5nFPx63aatm5LNBGlS8bTzYQ9xQXqd36M";
-var S={tok:null,ref:null,rows:[],f:"all"}, $=function(i){return document.getElementById(i)};
-function el(t,txt,cls){var e=document.createElement(t);if(txt!=null)e.textContent=txt;if(cls)e.className=cls;return e}
-function show(id,on){$(id).classList[on?"remove":"add"]("hide")}
-function note(id,m,ok){var b=$(id);b.textContent="";if(m){b.appendChild(el("div",m,"msg "+(ok?"ok":"er")))}}
-var ERR={"not admin":"هذا الحساب ليس مطوّراً","bad plan":"خطة غير صالحة","bad limit":"حد غير صالح","bad date":"تاريخ غير صالح","license not found":"لا يوجد ترخيص لهذا المستخدم","Invalid login credentials":"بيانات الدخول غير صحيحة","bad key":"مفتاح غير صالح","value too long":"القيمة طويلة جداً"};
-function tr(m){return ERR[m]||m||"خطأ غير معروف"}
-
-async function api(path,opt,retry){
-  opt=opt||{};var h={apikey:KEY,"Content-Type":"application/json"};
-  if(S.tok)h.Authorization="Bearer "+S.tok;
-  var r=await fetch(URL_BASE+path,{method:opt.method||"GET",headers:h,body:opt.body?JSON.stringify(opt.body):undefined});
-  if(r.status===401&&S.ref&&!retry){if(await refresh())return api(path,opt,true)}
-  var t=await r.text(),j=null;try{j=t?JSON.parse(t):null}catch(e){}
-  if(!r.ok){var m=(j&&(j.message||j.msg||j.error_description||j.error))||("HTTP "+r.status);throw new Error(m)}
-  return j;
-}
-async function refresh(){
-  try{var r=await fetch(URL_BASE+"/auth/v1/token?grant_type=refresh_token",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({refresh_token:S.ref})});
-    if(!r.ok)return false;var j=await r.json();save(j);return true}catch(e){return false}
-}
-function save(j){S.tok=j.access_token;S.ref=j.refresh_token;try{sessionStorage.setItem("vn_s",JSON.stringify({a:S.tok,r:S.ref}))}catch(e){}}
-function clear(){S.tok=S.ref=null;try{sessionStorage.removeItem("vn_s")}catch(e){}}
-
-async function login(){
-  note("lmsg","");$("go").disabled=true;
-  try{
-    var r=await fetch(URL_BASE+"/auth/v1/token?grant_type=password",{method:"POST",headers:{apikey:KEY,"Content-Type":"application/json"},body:JSON.stringify({email:$("em").value.trim(),password:$("pw").value})});
-    var j=await r.json();if(!r.ok)throw new Error(j.error_description||j.msg||j.message||"فشل الدخول");
-    save(j);$("pw").value="";await enter();
-  }catch(e){clear();note("lmsg",tr(e.message))}finally{$("go").disabled=false}
-}
-async function enter(){
-  var ok=await api("/rest/v1/rpc/is_admin",{method:"POST",body:{}});
-  if(ok!==true){clear();throw new Error("not admin")}
-  show("login",false);show("app",true);show("out",true);$("who").textContent=$("em").value||"";
-  await loadLic();
-}
-function today(){var d=new Date();return new Date(d.getFullYear(),d.getMonth(),d.getDate())}
-function pd(s){var p=String(s).split("-");return new Date(+p[0],+p[1]-1,+p[2])}
-function fd(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
-function days(r){return Math.round((pd(r.expires_at)-today())/864e5)}
-function state(r){if(r.suspended)return["موقوف","er"];var d=days(r);if(d<0)return["منتهٍ","er"];if(d<=7)return["ينتهي بعد "+d+" يوم","wa"];return["فعّال","ok"]}
-
-async function loadLic(){
-  note("lm","");
-  try{S.rows=await api("/rest/v1/rpc/admin_list_licenses",{method:"POST",body:{}})||[];renderLic()}
-  catch(e){note("lm",tr(e.message))}
-}
-function visible(){
-  var q=$("q").value.trim().toLowerCase();
-  return S.rows.filter(function(r){
-    if(q&&(r.email||"").toLowerCase().indexOf(q)<0)return false;var d=days(r);
-    switch(S.f){case"soon":return !r.suspended&&d>=0&&d<=7;case"expired":return d<0;case"susp":return r.suspended;case"trial":return r.plan==="trial";case"paid":return r.plan==="paid"}
-    return true});
-}
-function renderLic(){
-  var all=S.rows,st=$("stats");st.textContent="";
-  var c={all:all.length,act:all.filter(function(r){return !r.suspended&&days(r)>=0}).length,soon:all.filter(function(r){var d=days(r);return !r.suspended&&d>=0&&d<=7}).length,exp:all.filter(function(r){return days(r)<0}).length,sus:all.filter(function(r){return r.suspended}).length,paid:all.filter(function(r){return r.plan==="paid"}).length};
-  [["الكل",c.all],["فعّال",c.act],["ينتهي قريباً",c.soon],["منتهٍ",c.exp],["موقوف",c.sus],["مدفوع",c.paid]].forEach(function(x){var d=el("div",null,"stat");d.appendChild(el("b",x[1]));d.appendChild(el("span",x[0]));st.appendChild(d)});
-  var tb=$("rows");tb.textContent="";
-  visible().forEach(function(r){
-    var s=state(r),t=document.createElement("tr");
-    var e=el("td",r.email||"—","e");e.dir="ltr";e.title=r.email||"";t.appendChild(e);
-    t.appendChild(el("td",r.plan));t.appendChild(el("td",r.expires_at));t.appendChild(el("td",r.sub_limit));
-    var tt=document.createElement("td");tt.appendChild(el("span",s[0],"tag "+s[1]));t.appendChild(tt);
-    var ac=document.createElement("td"),b=el("button","تعديل");b.onclick=function(){openDlg(r)};ac.appendChild(b);
-    var b2=el("button",r.suspended?"تفعيل":"إيقاف",r.suspended?"":"d");b2.style.marginInlineStart="6px";b2.onclick=function(){quick(r,{suspended:!r.suspended})};ac.appendChild(b2);
-    t.appendChild(ac);tb.appendChild(t);
-  });
-}
-async function setLic(r,v){
-  await api("/rest/v1/rpc/admin_set_license",{method:"POST",body:{p_user:r.user_id,p_plan:v.plan,p_expires:v.expires,p_limit:v.limit,p_suspended:v.suspended}});
-}
-async function quick(r,ch){
-  if(!confirm((ch.suspended?"إيقاف":"تفعيل")+" ترخيص "+(r.email||"")+"؟"))return;
-  try{await setLic(r,{plan:r.plan,expires:r.expires_at,limit:r.sub_limit,suspended:ch.suspended});await loadLic()}catch(e){note("lm",tr(e.message))}
-}
-var cur=null;
-function openDlg(r){
-  cur=r;$("dt").textContent="تعديل الترخيص";$("dm").textContent=r.email||"";
-  $("dp").value=r.plan==="paid"?"paid":"trial";$("dd").value=r.expires_at;$("dl").value=r.sub_limit;$("ds").checked=!!r.suspended;note("dmsg","");$("dlg").showModal();
-}
-document.querySelectorAll("[data-x]").forEach(function(b){b.onclick=function(){
-  var base=pd($("dd").value||fd(today()));if(base<today())base=today();base.setDate(base.getDate()+(+b.dataset.x));$("dd").value=fd(base)}});
-$("dcancel").onclick=function(){$("dlg").close()};
-$("dsave").onclick=async function(){
-  var lim=parseInt($("dl").value,10);if(!$("dd").value||isNaN(lim)||lim<0){note("dmsg","تحقق من التاريخ والحد");return}
-  $("dsave").disabled=true;
-  try{await setLic(cur,{plan:$("dp").value,expires:$("dd").value,limit:lim,suspended:$("ds").checked});$("dlg").close();await loadLic()}
-  catch(e){note("dmsg",tr(e.message))}finally{$("dsave").disabled=false}
-};
-
-var CFG=[["developer_name","اسم المطوّر"],["support_whatsapp","واتساب الدعم (بصيغة دولية)"],["plans_text","نص الباقات والأسعار"],["license_update_version","إصدار تحديث الترخيص (اتركه فارغاً لإيقافه)"],["license_update_message","رسالة تحديث الترخيص"]];
-async function loadCfg(){
-  note("cm","");var box=$("cfgbox");box.textContent="";
-  try{
-    var rows=await api("/rest/v1/app_config?select=key,value")||[],m={};rows.forEach(function(x){m[x.key]=x.value});
-    CFG.forEach(function(c){
-      var l=el("label",c[1]);box.appendChild(l);var long=c[0]==="plans_text"||c[0]==="license_update_message";
-      var i=document.createElement(long?"textarea":"input");if(long)i.rows=3;i.value=m[c[0]]||"";box.appendChild(i);
-      var b=el("button","حفظ");b.style.marginTop="6px";b.onclick=async function(){b.disabled=true;try{await api("/rest/v1/rpc/admin_set_config",{method:"POST",body:{p_key:c[0],p_value:i.value}});note("cm","تم حفظ: "+c[1],true)}catch(e){note("cm",tr(e.message))}finally{b.disabled=false}};box.appendChild(b);
-    });
-  }catch(e){note("cm",tr(e.message)+" — نفّذ supabase_fixes.sql أولاً")}
-}
-async function loadAud(){
-  note("am","");var tb=$("arows");tb.textContent="";
-  try{(await api("/rest/v1/rpc/admin_list_audit",{method:"POST",body:{p_limit:200}})||[]).forEach(function(a){
-    var t=document.createElement("tr");t.appendChild(el("td",new Date(a.at).toLocaleString("ar")));var x=el("td",a.admin_email||"—");x.dir="ltr";t.appendChild(x);
-    var y=el("td",a.target_email||"—");y.dir="ltr";t.appendChild(y);t.appendChild(el("td",a.action));
-    var z=document.createElement("td"),p=el("pre",JSON.stringify(a.new_value)||"");z.appendChild(p);t.appendChild(z);tb.appendChild(t)})}
-  catch(e){note("am",tr(e.message)+" — نفّذ supabase_fixes.sql أولاً")}
-}
-function csvCell(v){v=String(v==null?"":v);if(/^[=+\-@\t\r]/.test(v))v="'"+v;return '"'+v.replace(/"/g,'""')+'"'}
-$("csv").onclick=function(){
-  var rows=[["email","plan","expires_at","sub_limit","suspended"]].concat(visible().map(function(r){return[r.email,r.plan,r.expires_at,r.sub_limit,r.suspended]}));
-  var b=new Blob(["\ufeff"+rows.map(function(r){return r.map(csvCell).join(",")}).join("\n")],{type:"text/csv"});
-  var a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="licenses.csv";document.body.appendChild(a);a.click();a.remove();
-};
-document.querySelectorAll("[data-t]").forEach(function(b){b.onclick=function(){
-  document.querySelectorAll("[data-t]").forEach(function(x){x.classList.toggle("on",x===b)});
-  ["lic","cfg","aud"].forEach(function(t){show("t-"+t,t===b.dataset.t)});
-  if(b.dataset.t==="cfg")loadCfg();if(b.dataset.t==="aud")loadAud()}});
-document.querySelectorAll("[data-f]").forEach(function(b){b.onclick=function(){
-  S.f=b.dataset.f;document.querySelectorAll("[data-f]").forEach(function(x){x.classList.toggle("on",x===b)});renderLic()}});
-$("q").oninput=renderLic;$("rf").onclick=loadLic;$("go").onclick=login;
-$("pw").onkeydown=function(e){if(e.key==="Enter")login()};
-$("out").onclick=function(){clear();location.reload()};
-(async function(){
-  try{var s=JSON.parse(sessionStorage.getItem("vn_s")||"null");if(s){S.tok=s.a;S.ref=s.r;await enter()}}catch(e){clear()}
+(() => {
+  'use strict';
+  const SUPABASE_URL = 'https://vfnuljbkgnysmycnitoi.supabase.co';
+  // Publishable key only. Never place service_role/secret keys in a GitHub Pages site.
+  const SUPABASE_PUBLISHABLE_KEY = 'sb_publishable_Sw2_qo8Bxjt-sn7U3LtJAQ_aKP2FHl9';
+  const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+  const $ = id => document.getElementById(id); let licenses=[], accounts=[], controls=[];
+  const today = () => new Date().toISOString().slice(0,10);
+  const esc = s => String(s ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  function note(text,type=''){ $('notice').innerHTML = text ? `<div class="msg ${type}">${esc(text)}</div>` : ''; }
+  function loginNote(text,type='error'){ $('loginMsg').innerHTML = text ? `<div class="msg ${type}">${esc(text)}</div>` : ''; }
+  async function rpc(name,args={}) { const {data,error}=await client.rpc(name,args); if(error) throw error; return data; }
+  function datePlus(date,n){const d=new Date((date && date>=today()?date:today())+'T12:00:00');d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)}
+  function status(r){if(r.suspended)return ['مجمّد','bad'];if(r.expires_at && r.expires_at<today())return ['منتهي','warn'];return ['فعّال','ok'];}
+  async function enter(){const {data:{session}}=await client.auth.getSession();if(!session){$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');return;}
+    try{const allowed=await rpc('is_admin');if(allowed!==true)throw new Error('هذا الحساب ليس مطوّراً أو مديراً رئيسياً.');
+      $('login').classList.add('hidden');$('dashboard').classList.remove('hidden');$('who').textContent=session.user.email||'';await loadAll();
+    }catch(e){await client.auth.signOut();$('login').classList.remove('hidden');$('dashboard').classList.add('hidden');loginNote(e.message||'تعذّر التحقق من الصلاحية.');}}
+  async function signIn(){ $('loginBtn').disabled=true;loginNote('جارٍ تسجيل الدخول…','');try{const {error}=await client.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error)throw error;$('password').value='';loginNote('');await enter();}catch(e){loginNote(e.message||'فشل تسجيل الدخول.');}finally{$('loginBtn').disabled=false;}}
+  async function loadAll(){note('جارٍ تحميل البيانات…');try{const [l,a,c]=await Promise.all([rpc('admin_list_licenses'),rpc('vnp_admin_list_accounts'),rpc('vnp_admin_get_app_controls')]);licenses=Array.isArray(l)?l:[];accounts=Array.isArray(a)?a:[];controls=Array.isArray(c)?c:[];renderLicenses();renderAccounts();renderControls();note('تم تحديث البيانات.','good');}catch(e){note(e.message||'تعذّر تحميل البيانات.','error');}}
+  function renderLicenses(){const q=$('search').value.trim().toLowerCase();const rows=licenses.filter(r=>(r.email||'').toLowerCase().includes(q)||(r.plan||'').toLowerCase().includes(q));$('licenseRows').innerHTML=rows.length?rows.map(r=>{const [st,cl]=status(r);return `<tr><td dir="ltr">${esc(r.email||r.user_id)}</td><td>${esc(r.plan)}</td><td dir="ltr">${esc(r.expires_at)}</td><td>${Number(r.sub_limit)||0}</td><td><span class="pill ${cl}">${st}</span></td><td><div class="actions"><button data-edit="${esc(r.user_id)}">إدارة</button><button class="secondary" data-renew="${esc(r.user_id)}" data-days="30">+30 يوم</button><button class="secondary" data-freeze="${esc(r.user_id)}">${r.suspended?'إلغاء التجميد':'تجميد'}</button></div></td></tr>`}).join(''):'<tr><td colspan="6" class="muted">لا توجد نتائج.</td></tr>';
+    $('sTotal').textContent=licenses.length;$('sFrozen').textContent=licenses.filter(x=>x.suspended).length;$('sExpired').textContent=licenses.filter(x=>!x.suspended&&x.expires_at<today()).length;$('sActive').textContent=licenses.filter(x=>!x.suspended&&x.expires_at>=today()).length;}
+  async function setLicense(r,patch){await rpc('admin_set_license',{p_user:r.user_id,p_plan:patch.plan??r.plan,p_expires:patch.expires??r.expires_at,p_limit:patch.limit??r.sub_limit,p_suspended:patch.suspended??r.suspended});note('تم حفظ الترخيص بنجاح.','good');await loadAll();}
+  function openEdit(r){$('modalTitle').textContent='إدارة ترخيص '+(r.email||r.user_id);$('modalBody').innerHTML=`<div class="field"><label>الباقة</label><input id="mPlan" value="${esc(r.plan)}"></div><div class="grid2"><div class="field"><label>تاريخ الانتهاء</label><input id="mExpiry" type="date" value="${esc(r.expires_at)}"></div><div class="field"><label>حد المشتركين</label><input id="mLimit" type="number" min="0" value="${Number(r.sub_limit)||0}"></div></div><div class="field"><label>منح أيام إضافية</label><div class="bar"><input id="mDays" type="number" min="1" placeholder="مثلاً 30"><button id="applyDays" class="secondary">إضافة الأيام</button></div></div><div class="actions"><button id="saveLic">حفظ التغييرات</button><button id="m30" class="secondary">+30 يوم</button><button id="m180" class="secondary">+6 أشهر</button><button id="m365" class="secondary">+سنة</button><button id="mFreeze" class="danger">${r.suspended?'إلغاء التجميد':'تجميد الحساب'}</button></div><div id="modalMsg"></div>`;$('modal').classList.remove('hidden');
+    $('saveLic').onclick=async()=>{try{const limit=Number($('mLimit').value);if(!Number.isInteger(limit)||limit<0)throw new Error('حد المشتركين غير صحيح');await setLicense(r,{plan:$('mPlan').value.trim()||'trial',expires:$('mExpiry').value,limit});$('modal').classList.add('hidden');}catch(e){$('modalMsg').innerHTML=`<div class="msg error">${esc(e.message)}</div>`;}};
+    $('applyDays').onclick=async()=>{try{const n=Number($('mDays').value);if(!Number.isInteger(n)||n<1)throw new Error('أدخل عدد أيام صحيحاً');$('mExpiry').value=datePlus($('mExpiry').value,n);}catch(e){$('modalMsg').innerHTML=`<div class="msg error">${esc(e.message)}</div>`;}};
+    for(const [id,n] of [['m30',30],['m180',180],['m365',365]])$(id).onclick=async()=>{$('mExpiry').value=datePlus($('mExpiry').value,n)};
+    $('mFreeze').onclick=async()=>{try{await setLicense(r,{suspended:!r.suspended});$('modal').classList.add('hidden');}catch(e){$('modalMsg').innerHTML=`<div class="msg error">${esc(e.message)}</div>`;}};
+  }
+  function renderAccounts(){const q=$('accountSearch').value.trim().toLowerCase();const rows=accounts.filter(a=>(a.email||'').toLowerCase().includes(q));$('accountRows').innerHTML=rows.map(a=>`<tr><td dir="ltr">${esc(a.email)}</td><td>${esc(a.role)}</td><td><span class="pill ${a.active?'ok':'bad'}">${a.active?'مفعّل':'معطّل'}</span></td><td><div class="actions"><select data-role="${esc(a.user_id)}"><option value="customer" ${a.role==='customer'?'selected':''}>مشترك</option><option value="staff" ${a.role==='staff'?'selected':''}>موظف</option><option value="admin" ${a.role==='admin'?'selected':''}>مدير</option><option value="developer" ${a.role==='developer'?'selected':''}>مطوّر</option></select><button data-role-save="${esc(a.user_id)}">حفظ</button><button class="secondary" data-active="${esc(a.user_id)}">${a.active?'تعطيل':'تفعيل'}</button></div></td></tr>`).join('')||'<tr><td colspan="4">لا توجد حسابات.</td></tr>';}
+  async function saveRole(id,activeOverride){const a=accounts.find(x=>x.user_id===id);const sel=document.querySelector(`[data-role="${CSS.escape(id)}"]`);const role=sel?sel.value:a.role;await rpc('vnp_manage_role',{p_email:a.email,p_role:role,p_active:activeOverride??true});note('تم تحديث الصلاحية.','good');await loadAll();}
+  function renderControls(){$('appControls').innerHTML=controls.map(c=>`<div class="appcontrol"><div><b>${c.app_code==='pro'?'VoltNet Pro':'UCP — تطبيق المشتركين'}</b><div class="muted" style="font-size:12px;margin-top:5px">${c.enabled?'التطبيق يعمل':'التطبيق متوقف'} · ${esc(c.message||'')}</div></div><button class="${c.enabled?'danger':'success'}" data-app="${c.app_code}" data-enabled="${!c.enabled}">${c.enabled?'إيقاف التطبيق':'تشغيل التطبيق'}</button></div>`).join('');}
+  document.addEventListener('click',async e=>{const t=e.target;if(t.dataset.edit){const r=licenses.find(x=>x.user_id===t.dataset.edit);if(r)openEdit(r);}if(t.dataset.renew){const r=licenses.find(x=>x.user_id===t.dataset.renew);if(r)try{await setLicense(r,{expires:datePlus(r.expires_at,Number(t.dataset.days))});}catch(x){note(x.message,'error');}}if(t.dataset.freeze){const r=licenses.find(x=>x.user_id===t.dataset.freeze);if(r)try{await setLicense(r,{suspended:!r.suspended});}catch(x){note(x.message,'error');}}if(t.dataset.roleSave){try{await saveRole(t.dataset.roleSave);}catch(x){note(x.message,'error');}}if(t.dataset.active){const a=accounts.find(x=>x.user_id===t.dataset.active);try{await saveRole(a.user_id,!a.active);}catch(x){note(x.message,'error');}}if(t.dataset.app){try{await rpc('vnp_set_app_enabled',{p_app:t.dataset.app,p_enabled:t.dataset.enabled==='true',p_message:t.dataset.enabled==='true'?'':'تم الإيقاف من لوحة المطوّر'});await loadAll();}catch(x){note(x.message,'error');}}});
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.tabpane').forEach(x=>x.classList.toggle('hidden',x.id!==b.dataset.tab));});
+  $('loginBtn').onclick=signIn;$('password').addEventListener('keydown',e=>{if(e.key==='Enter')signIn()});$('refresh').onclick=loadAll;$('reloadAccounts').onclick=loadAll;$('search').oninput=renderLicenses;$('accountSearch').oninput=renderAccounts;$('logout').onclick=async()=>{await client.auth.signOut();await enter()};$('closeModal').onclick=()=>$('modal').classList.add('hidden');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.add('hidden')};
+  $('export').onclick=()=>{const rows=[['email','plan','expires_at','sub_limit','suspended'],...licenses.map(x=>[x.email,x.plan,x.expires_at,x.sub_limit,x.suspended])];const csv='\ufeff'+rows.map(r=>r.map(v=>'"'+String(v??'').replaceAll('"','""')+'"').join(',')).join('\r\n');const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.download='voltnet-licenses.csv';a.click();URL.revokeObjectURL(a.href)};
+  client.auth.onAuthStateChange(()=>setTimeout(enter,0));enter();
 })();
 </script>
-</body>
-</html>
+</body></html>
